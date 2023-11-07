@@ -1,0 +1,58 @@
+//TOOP 22
+//Name: Matthew Condon
+//Instructor: LT Williams
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <iomanip> // used for limiting to 2 decimals
+
+#include <math.h>
+
+using namespace std;
+
+class Grades {
+    // class variables
+        double grd1, grd2, grd3;
+    // class methods
+    public:
+        void setGrades(double, double, double);
+        double getAverage();
+};
+
+// instantiate setGrades();
+// set method so no return
+void Grades::setGrades(double x, double y, double z) {
+    grd1 = x;
+    grd2 = y;
+    grd3 = z;
+}
+
+// instantiate getAverage();
+// get method so does return
+double Grades::getAverage() {
+    double tot = grd1 + grd2 + grd3;
+    double avg = tot / 3;
+    return avg;
+}
+
+// main method
+int main() {
+    // create objects
+    Grades Cdt1, Cdt2;
+
+    // set grade values
+    Cdt1.setGrades(99.0,83.0,86.5);
+    Cdt2.setGrades(87.9,93.2,91.8);
+
+    // limit to two decimal outputs
+    cout << fixed << setprecision(2);
+
+    // get averages of each cadet
+    cout << "Cadet 1 Average: " << Cdt1.getAverage() << "\n";
+    cout << "Cadet 2 Average: " << Cdt2.getAverage() << "\n";
+    
+    // Allows outputs to be printed to console
+    return 0;
+}
