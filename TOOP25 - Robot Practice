@@ -1,0 +1,53 @@
+/*
+3/c Matthew Condon
+TOOP25 Exercise
+Instructor: LT Wiliams
+*/
+
+// Tools
+#include <Pololu3piPlus32U4.h>
+#include <Arduino.h>
+#include <Pololu3piPlus32U4IMU.h>
+
+using namespace Pololu3piPlus32U4;
+
+// global vars
+OLED disp;
+
+// .h files
+
+// exampleRobot class
+class exampleRobot {
+private:
+    String line1;
+
+public:
+    // Constructor
+    exampleRobot() {
+        disp.init();
+        disp.setLayout21x8();
+        line1 = "";
+    }
+
+    // set line1 method
+    void setLine(String str) {
+        line1 = str;
+    }
+
+    // doesnt return anything, use OLED to display line1
+    void dispLine() {
+        disp.print(line1);
+    }
+};
+
+// instance of exampleRobot
+exampleRobot instance;
+
+void setup() {
+    instance.setLine("Go Bears!");
+}
+
+void loop() {
+    instance.dispLine();
+    delay(500);
+}
